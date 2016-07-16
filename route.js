@@ -1,18 +1,18 @@
-function route(pathName, handle, response, postData){
+function route(urlRequest, handle, response, request){
 
-	console.log('route to ' + pathName);
+	console.log('route to ' + urlRequest.pathname);
 
-	if (typeof handle[pathName] == 'function') {
-		handle[pathName](response, postData);
+	if (typeof handle[urlRequest.pathname] == 'function') {
+		handle[urlRequest.pathname](response, urlRequest, request);
 	}
 	else {
-		console.log('no handlers to solve ' + pathName);
+		console.log('no handlers to solve ' + urlRequest.pathname);
 		response.writeHead(404, {"Content-Type":"text/plain"});
 		response.write('haha, page not found');
 		response.end();
 	}
 
-	// return pathName;
+	// return urlRequest;
 }
 
 exports.route = route;

@@ -5,7 +5,8 @@ var routeHandler = require('./routeHandler');
 var handle = {
     '/': routeHandler.begin,
     '/begin': routeHandler.begin,
-    '/upload': routeHandler.upload
+    '/upload': routeHandler.upload,
+    '/getimg': routeHandler.getimg
 };
 
 console.log(server, route, handle);
